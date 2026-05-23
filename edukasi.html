@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edukasi Kesehatan Remaja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --green-light: #4ade80;
+      --green-glow: rgba(34,197,94,0.2);
+      --bg: #0a0f0a;
+      --bg2: #0f1a0f;
+      --card: #141f14;
+      --card2: #1a2a1a;
+      --text: #e2f0e2;
+      --text-dim: #a0b8a0;
+      --border: rgba(34,197,94,0.2);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,15,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+
+    .nav-links { display: flex; gap: 0.5rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--green);
+      background: var(--green-glow);
+      border-color: var(--border);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* hero banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.03));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-banner::before {
+      content: '🌿';
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 6rem;
+      opacity: 0.12;
+    }
+
+    .hero-banner .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-banner h1 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--green-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero-banner p {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 6px 20px var(--green-glow);
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* section title */
+    .sec-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* health topic cards */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .topic-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.25s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .topic-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px var(--green-glow);
+      background: var(--card2);
+    }
+
+    .topic-icon {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .topic-tag {
+      display: inline-block;
+      background: var(--green-glow);
+      color: var(--green);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 10px;
+      margin-bottom: 0.7rem;
+    }
+
+    .topic-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-card p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .topic-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .topic-card ul li {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .topic-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 0.75rem;
+    }
+
+    /* website links section */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .link-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s;
+      display: block;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .link-card:hover {
+      border-color: var(--green);
+      background: var(--card2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px var(--green-glow);
+    }
+
+    .link-top {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .link-emoji { font-size: 1.4rem; }
+
+    .link-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .link-desc {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 0.7rem;
+    }
+
+    .link-url {
+      font-size: 0.75rem;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* tips section */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tip-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      transition: 0.2s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .tip-item:hover {
+      border-color: var(--green);
+      background: var(--card2);
+    }
+
+    .tip-num {
+      background: var(--green);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tip-text {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .tip-text strong { color: var(--text); }
+
+    /* callout */
+    .callout {
+      background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.04));
+      border: 1px solid var(--green);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .callout h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* nav btns */
+    .nav-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: var(--green); color: #000; }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+    .btn-outline:hover { background: var(--green-glow); transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span { color: var(--green); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">✦ MyProfile</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Biodata</a></li>
+    <li><a href="biografi.html">Biografi</a></li>
+    <li><a href="edukasi.html" class="active">Edukasi</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero-banner">
+    <p class="eyebrow">🌱 Website Bermanfaat</p>
+    <h1>Edukasi Kesehatan Remaja</h1>
+    <p>Kesehatan itu penting banget buat kita — Gen Z & remaja masa kini. Yuk kenali tubuh sendiri, jaga kesehatan fisik & mental, dan hidup lebih sehat dari sekarang!</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">80%</div>
+      <div class="stat-label">Remaja kurang bergerak aktif</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Jam screen time rata-rata/hari</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">1 : 7</div>
+      <div class="stat-label">Remaja alami gangguan mental</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">70%</div>
+      <div class="stat-label">Minum air putih masih kurang</div>
+    </div>
+  </div>
+
+  <!-- Topik Kesehatan -->
+  <p class="sec-title">💡 Topik Kesehatan Remaja</p>
+  <div class="topics-grid">
+
+    <div class="topic-card" style="animation-delay:0.1s">
+      <div class="topic-icon">🧠</div>
+      <span class="topic-tag">Mental Health</span>
+      <h3>Kesehatan Mental</h3>
+      <p>Stress sekolah, tekanan sosmed, atau masalah pertemanan bisa bikin mental drop. Penting banget buat kita bisa mengenali dan kelola perasaan sendiri.</p>
+      <ul>
+        <li>Kenali tanda-tanda stress & burnout</li>
+        <li>Coba journaling atau meditasi singkat</li>
+        <li>Jangan takut cerita ke orang yang dipercaya</li>
+      </ul>
+    </div>
+
+    <div class="topic-card" style="animation-delay:0.2s">
+      <div class="topic-icon">🏃</div>
+      <span class="topic-tag">Aktivitas Fisik</span>
+      <h3>Olahraga & Gerak Aktif</h3>
+      <p>WHO rekomendasiin remaja olahraga minimal 60 menit sehari. Tapi nggak harus ke gym — aktivitas ringan juga udah bantu banget!</p>
+      <ul>
+        <li>Jalan kaki / bersepeda ke sekolah</li>
+        <li>Olahraga bareng teman lebih seru</li>
+        <li>Hindari duduk lebih dari 2 jam tanpa gerak</li>
+      </ul>
+    </div>
+
+    <div class="topic-card" style="animation-delay:0.3s">
+      <div class="topic-icon">🥗</div>
+      <span class="topic-tag">Gizi & Nutrisi</span>
+      <h3>Makan Sehat itu Bisa Enak!</h3>
+      <p>Makanan yang kita makan langsung ngaruh ke mood, konsentrasi, dan energi buat belajar. Yuk pilih makanan yang lebih bergizi!</p>
+      <ul>
+        <li>Sarapan jangan dilewat — penting buat otak</li>
+        <li>Perbanyak sayur, buah, dan protein</li>
+        <li>Kurangi junkfood & minuman manis berlebihan</li>
+      </ul>
+    </div>
+
+    <div class="topic-card" style="animation-delay:0.4s">
+      <div class="topic-icon">😴</div>
+      <span class="topic-tag">Pola Tidur</span>
+      <h3>Tidur = Investasi Otakmu</h3>
+      <p>Remaja butuh 8–10 jam tidur per malam. Kurang tidur bikin susah fokus, mood jelek, dan daya tahan tubuh turun.</p>
+      <ul>
+        <li>Hindari HP minimal 1 jam sebelum tidur</li>
+        <li>Jadwal tidur & bangun yang konsisten</li>
+        <li>Kamar gelap & sejuk bikin tidur lebih nyenyak</li>
+      </ul>
+    </div>
+
+    <div class="topic-card" style="animation-delay:0.5s">
+      <div class="topic-icon">📱</div>
+      <span class="topic-tag">Digital Wellness</span>
+      <h3>Sehat di Era Digital</h3>
+      <p>Screen time berlebihan bisa bikin mata lelah, postur bungkuk, dan gangguan tidur. Yuk atur penggunaan gadget dengan bijak!</p>
+      <ul>
+        <li>Terapkan aturan 20-20-20 buat mata</li>
+        <li>Digital detox minimal 1 hari seminggu</li>
+        <li>Gunakan fitur screen time tracker di HP</li>
+      </ul>
+    </div>
+
+    <div class="topic-card" style="animation-delay:0.6s">
+      <div class="topic-icon">💧</div>
+      <span class="topic-tag">Hidrasi</span>
+      <h3>Minum Air Putih yang Cukup</h3>
+      <p>Remaja butuh minimal 8 gelas (2 liter) air putih per hari. Dehidrasi ringan aja udah bisa bikin susah konsentrasi dan sakit kepala.</p>
+      <ul>
+        <li>Bawa botol minum ke sekolah setiap hari</li>
+        <li>Minum sebelum merasa haus</li>
+        <li>Air putih >> minuman manis & bersoda</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 10 Tips -->
+  <p class="sec-title">✅ 10 Tips Hidup Sehat untuk Remaja</p>
+  <div class="tips-grid">
+    <div class="tip-item" style="animation-delay:0.1s"><div class="tip-num">1</div><div class="tip-text"><strong>Sarapan setiap pagi</strong> — jangan pernah skip, ini bahan bakar otakmu!</div></div>
+    <div class="tip-item" style="animation-delay:0.15s"><div class="tip-num">2</div><div class="tip-text"><strong>Minum 8 gelas air</strong> putih setiap hari tanpa kecuali.</div></div>
+    <div class="tip-item" style="animation-delay:0.2s"><div class="tip-num">3</div><div class="tip-text"><strong>Tidur cukup 8–10 jam</strong> — otakmu butuh istirahat buat tumbuh.</div></div>
+    <div class="tip-item" style="animation-delay:0.25s"><div class="tip-num">4</div><div class="tip-text"><strong>Olahraga minimal 30 menit</strong> sehari — bisa jalan santai juga!</div></div>
+    <div class="tip-item" style="animation-delay:0.3s"><div class="tip-num">5</div><div class="tip-text"><strong>Batasi screen time</strong> terutama sebelum tidur.</div></div>
+    <div class="tip-item" style="animation-delay:0.35s"><div class="tip-num">6</div><div class="tip-text"><strong>Kelola stress</strong> dengan hobi, ngobrol sama teman, atau journaling.</div></div>
+    <div class="tip-item" style="animation-delay:0.4s"><div class="tip-num">7</div><div class="tip-text"><strong>Makan buah & sayur</strong> minimal 5 porsi sehari.</div></div>
+    <div class="tip-item" style="animation-delay:0.45s"><div class="tip-num">8</div><div class="tip-text"><strong>Jaga kebersihan diri</strong> — cuci tangan, gosok gigi 2x sehari.</div></div>
+    <div class="tip-item" style="animation-delay:0.5s"><div class="tip-num">9</div><div class="tip-text"><strong>Jangan merokok & hindari alkohol</strong> — dampaknya nyata banget di usia muda.</div></div>
+    <div class="tip-item" style="animation-delay:0.55s"><div class="tip-num">10</div><div class="tip-text"><strong>Cek kesehatan rutin</strong> dan jangan ragu curhat ke orang tua/guru BK.</div></div>
+  </div>
+
+  <!-- Website Links -->
+  <p class="sec-title">🔗 Website Edukasi Kesehatan Terpercaya</p>
+  <div class="links-grid">
+
+    <a href="https://www.who.int/health-topics/adolescent-health" target="_blank" class="link-card" style="animation-delay:0.1s">
+      <div class="link-top">
+        <span class="link-emoji">🌍</span>
+        <span class="link-name">WHO — Adolescent Health</span>
+      </div>
+      <p class="link-desc">Informasi kesehatan remaja dari Organisasi Kesehatan Dunia. Terpercaya dan berbasis riset global.</p>
+      <span class="link-url">who.int →</span>
+    </a>
+
+    <a href="https://www.halodoc.com" target="_blank" class="link-card" style="animation-delay:0.2s">
+      <div class="link-top">
+        <span class="link-emoji">🏥</span>
+        <span class="link-name">HaloDoc</span>
+      </div>
+      <p class="link-desc">Platform kesehatan Indonesia yang bisa konsultasi dokter online, cek info penyakit, dan beli obat.</p>
+      <span class="link-url">halodoc.com →</span>
+    </a>
+
+    <a href="https://hellosehat.com" target="_blank" class="link-card" style="animation-delay:0.3s">
+      <div class="link-top">
+        <span class="link-emoji">💚</span>
+        <span class="link-name">Hello Sehat</span>
+      </div>
+      <p class="link-desc">Artikel kesehatan dalam Bahasa Indonesia yang mudah dipahami, cocok buat pelajar.</p>
+      <span class="link-url">hellosehat.com →</span>
+    </a>
+
+    <a href="https://www.kemenkes.go.id" target="_blank" class="link-card" style="animation-delay:0.4s">
+      <div class="link-top">
+        <span class="link-emoji">🇮🇩</span>
+        <span class="link-name">Kemenkes RI</span>
+      </div>
+      <p class="link-desc">Situs resmi Kementerian Kesehatan Indonesia. Info kesehatan nasional, panduan hidup sehat resmi.</p>
+      <span class="link-url">kemenkes.go.id →</span>
+    </a>
+
+    <a href="https://www.alodokter.com" target="_blank" class="link-card" style="animation-delay:0.5s">
+      <div class="link-top">
+        <span class="link-emoji">👨‍⚕️</span>
+        <span class="link-name">Alodokter</span>
+      </div>
+      <p class="link-desc">Tanya dokter gratis, cari informasi penyakit, dan akses ribuan artikel kesehatan berbahasa Indonesia.</p>
+      <span class="link-url">alodokter.com →</span>
+    </a>
+
+    <a href="https://www.unicef.org/topics/adolescent-health" target="_blank" class="link-card" style="animation-delay:0.6s">
+      <div class="link-top">
+        <span class="link-emoji">👶</span>
+        <span class="link-name">UNICEF — Teen Health</span>
+      </div>
+      <p class="link-desc">Data dan panduan kesehatan remaja dari UNICEF. Fokus ke kesehatan mental, nutrisi, dan isu global.</p>
+      <span class="link-url">unicef.org →</span>
+    </a>
+
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <h3>💬 Ingat — Kesehatan Itu Investasi Jangka Panjang</h3>
+    <p>
+      Kebiasaan sehat yang kamu bangun sekarang di usia remaja akan menentukan kualitas hidupmu 10–20 tahun ke depan.
+      Mulai dari hal kecil, konsisten, dan jangan lupa: tubuh sehat = pikiran jernih = prestasi maksimal! 🚀
+    </p>
+  </div>
+
+  <div class="nav-btns">
+    <a href="biografi.html" class="btn btn-outline">← Biografi</a>
+    <a href="index.html" class="btn btn-primary">Ke Biodata →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Dibuat dengan <span>♥</span> oleh <span>Nama Lengkapmu</span> · Tugas Informatika 2026</p>
+</footer>
+
+</body>
+</html>
