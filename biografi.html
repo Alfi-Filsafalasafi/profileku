@@ -3,381 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Biografi - Nama Siswa</title>
+  <title>Biografi - Achmad Brian Putra Pratama</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --green: #22c55e;
-      --green-dark: #16a34a;
-      --green-light: #4ade80;
-      --green-glow: rgba(34,197,94,0.2);
-      --bg: #0a0f0a;
-      --bg2: #0f1a0f;
-      --card: #141f14;
-      --card2: #1a2a1a;
-      --text: #e2f0e2;
-      --text-dim: #a0b8a0;
-      --border: rgba(34,197,94,0.2);
+      --green: #22c55e; --green-dark: #16a34a; --green-light: #4ade80;
+      --green-glow: rgba(34,197,94,0.2); --bg: #0a0f0a; --bg2: #0f1a0f;
+      --card: #141f14; --card2: #1a2a1a; --text: #e2f0e2;
+      --text-dim: #a0b8a0; --border: rgba(34,197,94,0.2);
     }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
+      content: ''; position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.35;
+      pointer-events: none; z-index: 0; opacity: 0.35;
     }
-
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,15,10,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,15,10,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
     }
-
-    .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.5rem;
-      list-style: none;
-    }
-
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+    .nav-links { display: flex; gap: 0.5rem; list-style: none; }
     .nav-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      transition: all 0.2s;
-      border: 1px solid transparent;
+      color: var(--text-dim); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 20px;
+      transition: all 0.2s; border: 1px solid transparent;
     }
-
     .nav-links a:hover, .nav-links a.active {
-      color: var(--green);
-      background: var(--green-glow);
-      border-color: var(--border);
+      color: var(--green); background: var(--green-glow); border-color: var(--border);
     }
-
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-    }
-
-    /* page header */
-    .page-header {
-      margin-bottom: 3rem;
-      animation: slideIn 0.6s ease both;
-    }
-
-    .page-header .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--green);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
+    main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-header { margin-bottom: 3rem; animation: slideIn 0.6s ease both; }
+    .page-header .eyebrow { font-size: 0.75rem; font-weight: 600; color: var(--green); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
     .page-header h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
       background: linear-gradient(135deg, #fff, var(--green-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1.1; margin-bottom: 0.8rem;
     }
-
-    .page-header p {
-      color: var(--text-dim);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      max-width: 560px;
-    }
-
-    /* top profile strip */
+    .page-header p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; max-width: 560px; }
     .profile-strip {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      display: flex; gap: 1.5rem; align-items: center;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem;
       animation: slideIn 0.6s 0.1s ease both;
     }
-
-    .strip-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), #065f46);
-      padding: 2px;
-      flex-shrink: 0;
-    }
-
-    .strip-photo-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: var(--card2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      overflow: hidden;
-    }
-
-    .strip-photo-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .strip-info h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .strip-info p {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-    }
-
-    /* timeline */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--green), transparent);
-      border-radius: 2px;
-    }
-
-    .tl-item {
-      position: relative;
-      margin-bottom: 1.8rem;
-      animation: slideIn 0.6s ease both;
-    }
-
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -1.72rem;
-      top: 6px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--green);
-      border: 2px solid var(--bg);
-      box-shadow: 0 0 0 3px var(--green-glow);
-    }
-
-    .tl-year {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-
-    .tl-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .tl-body {
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      line-height: 1.7;
-    }
-
-    /* section titles */
-    .sec-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* skill bars */
-    .skills-grid {
-      display: grid;
-      gap: 0.8rem;
-      margin-bottom: 2.5rem;
-      animation: slideIn 0.6s 0.4s ease both;
-    }
-
-    .skill-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .skill-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-    }
-
+    .strip-photo { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--green), #065f46); padding: 2px; flex-shrink: 0; }
+    .strip-photo-inner { width: 100%; height: 100%; border-radius: 50%; background: var(--card2); display: flex; align-items: center; justify-content: center; font-size: 2rem; overflow: hidden; }
+    .strip-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+    .strip-info h2 { font-size: 1.2rem; font-weight: 700; }
+    .strip-info p { font-size: 0.85rem; color: var(--text-dim); }
+    .timeline { position: relative; padding-left: 2rem; margin-bottom: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--green), transparent); border-radius: 2px; }
+    .tl-item { position: relative; margin-bottom: 1.8rem; animation: slideIn 0.6s ease both; }
+    .tl-item::before { content: ''; position: absolute; left: -1.72rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid var(--bg); box-shadow: 0 0 0 3px var(--green-glow); }
+    .tl-year { font-size: 0.72rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .tl-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .tl-body { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
+    .sec-title { font-size: 0.75rem; font-weight: 700; color: var(--green); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .skills-grid { display: grid; gap: 0.8rem; margin-bottom: 2.5rem; animation: slideIn 0.6s 0.4s ease both; }
+    .skill-row { display: flex; flex-direction: column; gap: 0.3rem; }
+    .skill-meta { display: flex; justify-content: space-between; font-size: 0.85rem; }
     .skill-name { font-weight: 500; }
     .skill-pct { color: var(--green); font-weight: 600; font-size: 0.8rem; }
-
-    .skill-bar {
-      height: 6px;
-      background: var(--card2);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .skill-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green-dark), var(--green-light));
-      border-radius: 3px;
-      animation: growBar 1s ease both;
-      animation-delay: 0.5s;
-    }
-
-    @keyframes growBar {
-      from { width: 0 !important; }
-    }
-
-    /* cita-cita / goal card */
-    .goal-card {
-      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02));
-      border: 1px solid var(--green);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      animation: slideIn 0.6s 0.5s ease both;
-    }
-
-    .goal-card .goal-emoji {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .goal-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .goal-card p {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      line-height: 1.7;
-    }
-
-    /* personality chips */
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-      animation: slideIn 0.6s 0.3s ease both;
-    }
-
-    .chip {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text-dim);
-      transition: 0.2s;
-    }
-
-    .chip:hover {
-      border-color: var(--green);
-      color: var(--green-light);
-    }
-
-    /* nav buttons */
-    .nav-btns {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 0.65rem 1.5rem;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
+    .skill-bar { height: 6px; background: var(--card2); border-radius: 3px; overflow: hidden; }
+    .skill-fill { height: 100%; background: linear-gradient(90deg, var(--green-dark), var(--green-light)); border-radius: 3px; animation: growBar 1s ease both; animation-delay: 0.5s; }
+    @keyframes growBar { from { width: 0 !important; } }
+    .goal-card { background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02)); border: 1px solid var(--green); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; animation: slideIn 0.6s 0.5s ease both; }
+    .goal-card .goal-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+    .goal-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .goal-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.7; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; animation: slideIn 0.6s 0.3s ease both; }
+    .chip { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; color: var(--text-dim); transition: 0.2s; }
+    .chip:hover { border-color: var(--green); color: var(--green-light); }
+    /* prestasi */
+    .prestasi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0.8rem; margin-bottom: 2.5rem; }
+    .prestasi-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; animation: slideIn 0.6s ease both; transition: 0.2s; }
+    .prestasi-item:hover { border-color: var(--green); background: var(--card2); }
+    .prestasi-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .prestasi-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .prestasi-desc { font-size: 0.78rem; color: var(--text-dim); }
+    .nav-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 25px; text-decoration: none; transition: all 0.2s; }
     .btn-primary { background: var(--green); color: #000; }
-    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 6px 20px var(--green-glow); }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
     .btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
     .btn-outline:hover { background: var(--green-glow); transform: translateY(-2px); }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 1.5rem;
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      border-top: 1px solid var(--border);
-    }
-
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    footer { position: relative; z-index: 1; text-align: center; padding: 1.5rem; color: var(--text-dim); font-size: 0.75rem; border-top: 1px solid var(--border); }
     footer span { color: var(--green); }
   </style>
 </head>
@@ -397,108 +113,114 @@
   <div class="page-header">
     <p class="eyebrow">📖 Tentang Aku</p>
     <h1>Biografi Singkat</h1>
-    <p>Sedikit cerita tentang perjalanan hidupku, kepribadian, dan mimpi-mimpi yang pengen aku raih.</p>
+    <p>Perjalanan hidup, prestasi, dan mimpi-mimpi seorang anak Tuban yang suka muncak dan pantang nyerah.</p>
   </div>
 
   <div class="profile-strip">
     <div class="strip-photo">
       <div class="strip-photo-inner">
-        <!-- Ganti dengan foto kamu -->
-        <span>🧑‍🎓</span>
+        <img src="profile.jpg" alt="Foto Achmad Brian Putra Pratama">
       </div>
     </div>
     <div class="strip-info">
-      <h2>Nama Lengkapmu</h2>
-      <p>Siswa SMA · Kelas X · No. Absen XX</p>
-      <p style="margin-top:0.3rem; color: var(--green); font-size:0.8rem;">✦ Pelajar yang penasaran & suka eksplorasi</p>
+      <h2>Achmad Brian Putra Pratama</h2>
+      <p>Siswa SMAN 1 Tuban · Kelas X-F · No. Absen 01</p>
+      <p style="margin-top:0.3rem; color: var(--green); font-size:0.8rem;">✦ Pantang menyerah, berani, dan selalu ingin lebih</p>
     </div>
   </div>
 
-  <!-- Perjalanan Hidup -->
   <p class="sec-title">🗺️ Perjalanan Hidup</p>
   <div class="timeline">
     <div class="tl-item" style="animation-delay: 0.15s">
-      <p class="tl-year">20XX — Lahir</p>
+      <p class="tl-year">2008 — Lahir</p>
       <p class="tl-title">Awal Mula Segalanya</p>
-      <p class="tl-body">Aku lahir di [Kota], anak ke-[X] dari [X] bersaudara. Dari kecil udah suka penasaran sama banyak hal, terutama teknologi dan sains.</p>
+      <p class="tl-body">Lahir di Tuban, 6 Desember 2008. Dari kecil udah punya jiwa yang nggak mau diam — selalu penasaran, selalu pengen nyoba hal baru. Tumbuh di lingkungan yang mengajarkan untuk berani dan mandiri.</p>
     </div>
     <div class="tl-item" style="animation-delay: 0.25s">
-      <p class="tl-year">20XX — SD</p>
-      <p class="tl-title">Masa Sekolah Dasar</p>
-      <p class="tl-body">Sekolah di SD [Nama Sekolah]. Di sini aku mulai suka pelajaran Matematika dan IPA. Aktif juga di berbagai kegiatan ekskul seperti [ekskul].</p>
+      <p class="tl-year">2015–2021 — SD</p>
+      <p class="tl-title">SDN 1 Semanding</p>
+      <p class="tl-body">Menempuh pendidikan dasar di SDN 1 Semanding. Di sinilah benih-benih semangat belajar dan keberanian mulai tumbuh. Suka aktif dan nggak bisa diem.</p>
     </div>
     <div class="tl-item" style="animation-delay: 0.35s">
-      <p class="tl-year">20XX — SMP</p>
-      <p class="tl-title">Mulai Kenal Teknologi</p>
-      <p class="tl-body">Lanjut di SMP [Nama Sekolah]. Di sinilah aku pertama kali kenal dunia komputer dan coding. Sempat ikut lomba [nama lomba] dan lumayan berprestasi.</p>
+      <p class="tl-year">2021–2024 — SMP</p>
+      <p class="tl-title">SMPN 1 Semanding — Mulai Berprestasi</p>
+      <p class="tl-body">Lanjut di SMPN 1 Semanding. Di sinilah karir prestasiku mulai keliatan — aktif di OSIS, ikut berbagai lomba, dan mulai serius di dunia menulis. Nggak cuma belajar di kelas, tapi juga belajar dari pengalaman organisasi.</p>
     </div>
     <div class="tl-item" style="animation-delay: 0.45s">
       <p class="tl-year">2024 — SMA</p>
-      <p class="tl-title">Sekarang — SMA [Nama Sekolah]</p>
-      <p class="tl-body">Sekarang lagi menjalani kelas X di SMA [Nama Sekolah]. Makin serius belajar coding, desain, dan ilmu teknologi. Lagi semangat-semangatnya!</p>
+      <p class="tl-title">SMAN 1 Tuban — Babak Baru</p>
+      <p class="tl-body">Sekarang menjalani kelas X-F di SMAN 1 Tuban. Ekskul voli, tetap aktif running & muncak, dan terus nulis. Target: makin berkembang dan nggak berhenti di satu pencapaian.</p>
     </div>
   </div>
 
-  <!-- Kepribadian -->
-  <p class="sec-title">🌟 Kepribadian</p>
-  <div class="chips">
-    <span class="chip">🤔 Penasaran</span>
-    <span class="chip">💪 Pantang Menyerah</span>
-    <span class="chip">🤝 Suka Kerja Tim</span>
-    <span class="chip">📱 Tech-Savvy</span>
-    <span class="chip">🎯 Fokus</span>
-    <span class="chip">😄 Friendly</span>
-    <span class="chip">🧠 Suka Belajar</span>
-    <span class="chip">✨ Kreatif</span>
+  <p class="sec-title">🏆 Prestasi</p>
+  <div class="prestasi-grid">
+    <div class="prestasi-item" style="animation-delay:0.1s">
+      <div class="prestasi-icon">🥈</div>
+      <p class="prestasi-title">Juara 2 Lomba Bahasa Inggris</p>
+      <p class="prestasi-desc">Se-Kabupaten Tuban — kompetisi tingkat kabupaten yang nggak sembarangan bisa masuk final</p>
+    </div>
+    <div class="prestasi-item" style="animation-delay:0.2s">
+      <div class="prestasi-icon">🏅</div>
+      <p class="prestasi-title">Beberapa Medali Fun Run</p>
+      <p class="prestasi-desc">Rutin ikut event Fun Run dan berhasil kumpulin beberapa medali dari berbagai event lari</p>
+    </div>
+    <div class="prestasi-item" style="animation-delay:0.3s">
+      <div class="prestasi-icon">✍️</div>
+      <p class="prestasi-title">Prestasi di Bidang Menulis</p>
+      <p class="prestasi-desc">Punya rekam jejak prestasi di dunia kepenulisan — salah satu bidang yang paling disukai</p>
+    </div>
+    <div class="prestasi-item" style="animation-delay:0.4s">
+      <div class="prestasi-icon">🧑‍💼</div>
+      <p class="prestasi-title">Pengurus OSIS SMP</p>
+      <p class="prestasi-desc">Aktif di organisasi OSIS saat SMP — belajar kepemimpinan dan kerja tim dari sini</p>
+    </div>
   </div>
 
-  <!-- Kemampuan -->
+  <p class="sec-title">🌟 Kepribadian</p>
+  <div class="chips">
+    <span class="chip">💪 Pantang Menyerah</span>
+    <span class="chip">🦁 Berani</span>
+    <span class="chip">😌 Humble</span>
+    <span class="chip">🎯 Perfeksionis</span>
+    <span class="chip">✅ Disiplin</span>
+    <span class="chip">🤝 Jujur</span>
+    <span class="chip">⛰️ Suka Tantangan</span>
+    <span class="chip">📝 Ekspresif</span>
+  </div>
+
   <p class="sec-title">⚙️ Kemampuan</p>
   <div class="skills-grid">
     <div class="skill-row">
-      <div class="skill-meta">
-        <span class="skill-name">HTML & CSS</span>
-        <span class="skill-pct">70%</span>
-      </div>
-      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      <div class="skill-meta"><span class="skill-name">Bahasa Inggris</span><span class="skill-pct">85%</span></div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
     </div>
     <div class="skill-row">
-      <div class="skill-meta">
-        <span class="skill-name">Desain Grafis</span>
-        <span class="skill-pct">55%</span>
-      </div>
-      <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+      <div class="skill-meta"><span class="skill-name">Menulis & Literasi</span><span class="skill-pct">90%</span></div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
     </div>
     <div class="skill-row">
-      <div class="skill-meta">
-        <span class="skill-name">Microsoft Office</span>
-        <span class="skill-pct">80%</span>
-      </div>
+      <div class="skill-meta"><span class="skill-name">Kepemimpinan & Organisasi</span><span class="skill-pct">80%</span></div>
       <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
     </div>
     <div class="skill-row">
-      <div class="skill-meta">
-        <span class="skill-name">Matematika</span>
-        <span class="skill-pct">75%</span>
-      </div>
-      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      <div class="skill-meta"><span class="skill-name">Olahraga & Fisik</span><span class="skill-pct">88%</span></div>
+      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
     </div>
     <div class="skill-row">
-      <div class="skill-meta">
-        <span class="skill-name">Bahasa Inggris</span>
-        <span class="skill-pct">65%</span>
-      </div>
+      <div class="skill-meta"><span class="skill-name">HTML & Web Dasar</span><span class="skill-pct">65%</span></div>
       <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
     </div>
   </div>
 
-  <!-- Cita-cita -->
   <div class="goal-card">
-    <div class="goal-emoji">🚀</div>
-    <h3>Cita-cita & Harapan</h3>
+    <div class="goal-emoji">🛢️</div>
+    <h3>Cita-cita: Offshore</h3>
     <p>
-      Aku pengen jadi [cita-cita kamu] di masa depan. Menurutku, dengan belajar keras dan terus eksplorasi hal-hal baru, semua itu bisa diraih.
-      Aku juga pengen bisa berkontribusi buat masyarakat lewat teknologi — karena aku percaya teknologi bisa bikin hidup orang jadi lebih mudah.
+      Aku pengen kerja di industri offshore — dunia yang butuh keberanian, ketangguhan, dan mental baja.
+      Bidang yang nggak bisa diraih oleh orang yang gampang nyerah. Pas banget sama karakter aku.
+      Dari sekarang aku udah ngebangun fondasi lewat prestasi akademik, fisik yang terlatih dari running dan muncak,
+      dan mental yang ditempa dari berbagai kompetisi dan organisasi.
     </p>
   </div>
 
@@ -510,7 +232,7 @@
 </main>
 
 <footer>
-  <p>Dibuat dengan <span>♥</span> oleh <span>Nama Lengkapmu</span> · Tugas Informatika 2026</p>
+  <p>Dibuat dengan <span>♥</span> oleh <span>Achmad Brian Putra Pratama</span> · Tugas Informatika 2026</p>
 </footer>
 
 </body>
